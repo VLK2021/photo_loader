@@ -20,7 +20,7 @@ const Title = () => {
 
     return (
         <h1 className={css.wrap} style={{color: currentColor}}>
-            photo loader
+            Photo Downloader
         </h1>
     );
 };
