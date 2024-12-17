@@ -1,16 +1,26 @@
 import React from 'react';
-
-import css from './Form.module.css';
 import {useForm} from "react-hook-form";
 
+import css from './Form.module.css';
+import {photoService} from "../../services";
 
-const Form = () => {
+
+const Form = (props) => {
     const {register, handleSubmit, reset} = useForm();
+    const {setPhotos} = props;
 
-    const submit = (data) => {
-        console.log(data);
+    const submit = async (data) => {
+        const query = data.query;
+        const count = data.count;
 
-        reset();
+        try {
+            const response = await photoService.searchPhoto(query, count);
+            console.log(response);
+
+            reset();
+        } catch (error) {
+            console.error("Error fetching photos:", error);
+        }
     }
 
     return (
@@ -19,22 +29,20 @@ const Form = () => {
                 <div className={css.inputGroup}>
                     <input
                         type="text"
-                        {...register('name')}
-                        placeholder="Enter your name"
+                        {...register('query')}
+                        placeholder="Enter query"
                         className={css.input}
                     />
-                </div>
 
-                <div className={css.inputGroup}>
                     <input
-                        type="text"
-                        {...register('index')}
-                        placeholder="Enter your index"
+                        type="number"
+                        {...register('count')}
+                        placeholder="Enter count"
                         className={css.input}
                     />
                 </div>
 
-                <button className={css.button}>Get Photo</button>
+                <button className={css.button}>Get Photos</button>
             </form>
         </div>
     );

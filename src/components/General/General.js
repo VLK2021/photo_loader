@@ -17,8 +17,9 @@ const General = () => {
             </div>
 
             <div className={css.form}>
-                <Form/>
+                <Form setPhotos={setPhotos}/>
             </div>
+
         </div>
     );
 };

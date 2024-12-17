@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-const baseURL = 'https://api.unsplash.com/photos/random';
+const baseURL = 'https://api.unsplash.com';
 const accessKey = process.env.REACT_APP_UNSPLASH_ACCESS_KEY;
 
 
