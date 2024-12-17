@@ -3,7 +3,8 @@ import {urls} from "../constants";
 
 
 const photoService = {
-    searchPhoto: (query, count) => axiosService.get(urls.search(query, count)),
+    searchPhoto: (page, query, count) => axiosService.get(urls.search(page, query, count)),
+    searchCollections: (page, query, count) => axiosService.get(urls.collections(page, query, count)),
 }
 
 export {
