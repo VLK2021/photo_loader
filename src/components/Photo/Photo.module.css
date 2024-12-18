@@ -1,4 +1,5 @@
 .wrap {
+    position: relative; /* Позиціонування для лоадера */
     width: 100%;
     height: 100%;
 }
@@ -7,6 +8,24 @@ img {
     width: 100%;
     height: 90%;
     border-radius: 0.5rem;
+    transition: opacity 0.3s ease; /* Плавна зміна видимості */
+}
+
+img.hidden {
+    opacity: 0; /* Ховаємо зображення поки воно не завантажиться */
+}
+
+.loaderWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90%; /* Той самий розмір, що й img */
+    background-color: rgba(255, 255, 255, 0.8); /* Напівпрозоре тло */
+    z-index: 1; /* Поверх зображення */
 }
 
 .button {
