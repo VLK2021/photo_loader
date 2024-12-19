@@ -13,7 +13,6 @@ const General = () => {
     const [page, setPage] = useState(1);
     const [isShow, setIsShow] = useState(false);
 
-
     console.log(photos);
 
 
@@ -28,6 +27,7 @@ const General = () => {
                     setPhotos={setPhotos}
                     setIsShow={setIsShow}
                     page={page}
+                    setPage={setPage}
                     setQueryData={setQueryData}
                 />
             </div>

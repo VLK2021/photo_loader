@@ -7,9 +7,10 @@ import {photoService} from "../../services";
 
 const Form = (props) => {
     const {register, handleSubmit, reset} = useForm();
-    const {setPhotos, setIsShow, page, setQueryData} = props;
+    const {setPhotos, setIsShow, page, setPage, setQueryData} = props;
 
     const submit = async (data) => {
+        setPage(1);
         const query = data.query;
         const count = data.count;
 
