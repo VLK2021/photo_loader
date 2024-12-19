@@ -7,8 +7,7 @@ import {photoService} from "../../services";
 
 const Form = (props) => {
     const {register, handleSubmit, reset} = useForm();
-    const {setPhotos, setIsShow} = props;
-    const page = 1;
+    const {setPhotos, setIsShow, page, setQueryData} = props;
 
     const submit = async (data) => {
         const query = data.query;
@@ -19,7 +18,8 @@ const Form = (props) => {
             setPhotos(response);
 
             if (response.status === 200) {
-                setIsShow(true)
+                setIsShow(true);
+                setQueryData(data);
             }
 
             reset();
